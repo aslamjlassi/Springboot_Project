@@ -1,0 +1,20 @@
+# member-service-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: member-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: member-service
+  template:
+    metadata:
+      labels:
+        app: member-service
+    spec:
+      containers:
+      - name: member-service
+        image: aslamjlassi/memberservice
+        ports:
+        - containerPort: 8084

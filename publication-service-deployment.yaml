@@ -1,0 +1,20 @@
+# publication-service-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: publication-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: publication-service
+  template:
+    metadata:
+      labels:
+        app: publication-service
+    spec:
+      containers:
+      - name: publication-service
+        image: aslamjlassi/publicationservice
+        ports:
+        - containerPort: 8999
